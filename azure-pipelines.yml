@@ -1,21 +1,19 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
 trigger:
-- master
+- master   # hoặc 'master' nếu repo của bạn dùng nhánh master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+    versionSpec: '20.x'   # phiên bản Node bạn muốn dùng
+  displayName: 'Use Node.js'
 
 - script: |
     npm install
+  displayName: 'Install dependencies'
+
+- script: |
     npm run build
-  displayName: 'npm install and build'
+  displayName: 'Build project'
