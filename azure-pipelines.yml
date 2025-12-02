@@ -2,7 +2,7 @@ trigger:
 - master   # hoặc 'master' nếu repo của bạn dùng nhánh master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'Default'
 
 steps:
 - task: NodeTool@0
